@@ -61,7 +61,7 @@ function initializeSite() {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const revealElements = document.querySelectorAll('.category-item, .about-content-grid, .gallery-card, .stat-item, .cta-container');
+    const revealElements = document.querySelectorAll('.category-item, .about-layout, .gallery-card, .stat-item, .cta-container');
 
     revealElements.forEach(el => {
         el.style.opacity = '0';
