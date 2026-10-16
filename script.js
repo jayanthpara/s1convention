@@ -1,5 +1,43 @@
 // Runs after all HTML components have been loaded into index.html.
 function initializeSite() {
+    const policyDialog = document.getElementById('policyDialog');
+
+    if (policyDialog) {
+        const policyContents = policyDialog.querySelectorAll('[data-policy-content]');
+
+        document.querySelectorAll('[data-policy-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const selectedPolicy = policyDialog.querySelector(
+                    `[data-policy-content="${trigger.dataset.policyTrigger}"]`
+                );
+
+                if (!selectedPolicy) {
+                    console.error(`Could not find policy content for "${trigger.dataset.policyTrigger}".`);
+                    return;
+                }
+
+                policyContents.forEach(content => {
+                    content.hidden = content !== selectedPolicy;
+                });
+                policyDialog.setAttribute(
+                    'aria-labelledby',
+                    selectedPolicy.querySelector('h2').id
+                );
+                policyDialog.showModal();
+            });
+        });
+
+        policyDialog.addEventListener('click', event => {
+            if (event.target === policyDialog) {
+                policyDialog.close();
+            }
+        });
+
+        policyDialog.querySelector('.policy-dialog-close').addEventListener('click', () => {
+            policyDialog.close();
+        });
+    }
+
     // 1. Mobile Navigation Toggle
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
