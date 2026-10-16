@@ -38,28 +38,7 @@ function initializeSite() {
         });
     }
 
-    // 1. Mobile Navigation Toggle
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (hamburgerBtn && navMenu) {
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-    }
-
-    // 2. Navbar Background Scroll Effect
+    // 1. Navbar Background Scroll Effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -69,7 +48,7 @@ function initializeSite() {
         }
     });
 
-    // 3. Smooth Active Link Highlighting
+    // 2. Smooth Active Link Highlighting
     const sections = document.querySelectorAll('section[id]');
     
     function highlightNavOnScroll() {
@@ -93,7 +72,7 @@ function initializeSite() {
 
     window.addEventListener('scroll', highlightNavOnScroll);
 
-    // 4. Reveal Animations on Scroll
+    // 3. Reveal Animations on Scroll
     const observerOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'

@@ -282,6 +282,14 @@ ul {
 }
 
 .whatsapp-link {
+
+  
+
+
+    gap: 5px;
+
+
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -302,26 +310,6 @@ ul {
 .whatsapp-link:hover {
     border-color: #126536;
     background-color: #126536;
-}
-
-.hamburger-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-}
-
-.hamburger-btn span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-dark);
-    transition: var(--transition-smooth);
 }
 
 /* --------------------------------------------------------------------------
@@ -1461,56 +1449,38 @@ ul {
        MOBILE NAVIGATION
        ================================ */
 
-    .hamburger-btn {
-        display: flex;
+    .navbar-container {
+        flex-wrap: wrap;
+        row-gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
     }
 
     .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 82%;
-        max-width: 380px;
-        height: 100vh;
-        background-color: var(--text-dark);
-        padding: 6rem 2.5rem 3rem 2.5rem;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        z-index: 1000;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-menu.active {
-        right: 0;
+        order: 3;
+        flex: 0 0 100%;
+        min-width: 0;
     }
 
     .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding: 0.25rem 0;
+        scrollbar-width: none;
+    }
+
+    .nav-list::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-link {
-        color: var(--bg-card-white);
-        font-size: 1.1rem;
+        font-size: 0.6875rem;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
     }
 
     .whatsapp-link {
         padding: 0.55rem 0.8rem;
         font-size: 0.6875rem;
-    }
-
-    .hamburger-btn.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-        background-color: var(--bg-card-white);
-    }
-
-    .hamburger-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger-btn.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-        background-color: var(--bg-card-white);
     }
 
 
